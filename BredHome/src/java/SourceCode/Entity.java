@@ -22,3 +22,5 @@ public abstract class Entity implements Serializable, Cloneable{
         this.id = id;
     }
 }
+
+// для проверки

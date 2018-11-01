@@ -36,3 +36,5 @@ public class Abonent extends Entity{
         return "Abonent [id=" + id + ", phone=" + phone + ", lastname=" + lastname + "]";
     }    
 }
+
+// для проверки
