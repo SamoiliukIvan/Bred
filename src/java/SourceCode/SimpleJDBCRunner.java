@@ -106,3 +106,5 @@ public class SimpleJDBCRunner {
 14. В новом блоке finally, если st != null, закрываем его. Иначе выводим ошибку.
 15. В еще одном блоке finally через try/catch пытаемся закрыть соединение cn.
 */
+
+

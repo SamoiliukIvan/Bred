@@ -26,3 +26,5 @@ public class ConnectorDB {
 // возвращаю соединение, вызвав стат. метод getConnection на классе DriverManager и передав в качестве параметров url, user и pass
 
 // после этого можно создавать коннекшены путем вызова статического метода getConnection() на классе ConnectorDB
+
+//для теста
