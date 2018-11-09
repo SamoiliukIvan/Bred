@@ -1,11 +1,12 @@
 
 package entity;
 
+import dao.TourDao;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
-class Tour {
-    private Long id;
+public class Tour extends Entity implements TourDao{
     private String name;
     private String shortDescriptionRU;
     private String shortDescriptionEN;
@@ -18,12 +19,16 @@ class Tour {
     public Tour() {
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    public Tour(String name, String shortDescriptionRU, String shortDescriptionEN, String fullDescriptionRU, String fullDescriptionEN, Date dateOfStart, Date dateOfEnd, Long idRegion, Long id) {
+        super(id);
+        this.name = name;
+        this.shortDescriptionRU = shortDescriptionRU;
+        this.shortDescriptionEN = shortDescriptionEN;
+        this.fullDescriptionRU = fullDescriptionRU;
+        this.fullDescriptionEN = fullDescriptionEN;
+        this.dateOfStart = dateOfStart;
+        this.dateOfEnd = dateOfEnd;
+        this.idRegion = idRegion;
     }
 
     public String getName() {
@@ -92,16 +97,15 @@ class Tour {
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 89 * hash + Objects.hashCode(this.id);
-        hash = 89 * hash + Objects.hashCode(this.name);
-        hash = 89 * hash + Objects.hashCode(this.shortDescriptionRU);
-        hash = 89 * hash + Objects.hashCode(this.shortDescriptionEN);
-        hash = 89 * hash + Objects.hashCode(this.fullDescriptionRU);
-        hash = 89 * hash + Objects.hashCode(this.fullDescriptionEN);
-        hash = 89 * hash + Objects.hashCode(this.dateOfStart);
-        hash = 89 * hash + Objects.hashCode(this.dateOfEnd);
-        hash = 89 * hash + Objects.hashCode(this.idRegion);
+        int hash = 5;
+        hash = 97 * hash + Objects.hashCode(this.name);
+        hash = 97 * hash + Objects.hashCode(this.shortDescriptionRU);
+        hash = 97 * hash + Objects.hashCode(this.shortDescriptionEN);
+        hash = 97 * hash + Objects.hashCode(this.fullDescriptionRU);
+        hash = 97 * hash + Objects.hashCode(this.fullDescriptionEN);
+        hash = 97 * hash + Objects.hashCode(this.dateOfStart);
+        hash = 97 * hash + Objects.hashCode(this.dateOfEnd);
+        hash = 97 * hash + Objects.hashCode(this.idRegion);
         return hash;
     }
 
@@ -114,9 +118,6 @@ class Tour {
             return false;
         }
         final Tour other = (Tour) obj;
-        if (!Objects.equals(this.id, other.id)) {
-            return false;
-        }
         if (!Objects.equals(this.name, other.name)) {
             return false;
         }
@@ -146,8 +147,44 @@ class Tour {
 
     @Override
     public String toString() {
-        return "Tour{" + "id=" + id + ", name=" + name + ", shortDescriptionRU=" + shortDescriptionRU + ", shortDescriptionEN=" + shortDescriptionEN + ", fullDescriptionRU=" + fullDescriptionRU + ", fullDescriptionEN=" + fullDescriptionEN + ", dateOfStart=" + dateOfStart + ", dateOfEnd=" + dateOfEnd + ", idRegion=" + idRegion + '}';
+        return "id=" + getId() + " Tour{" + ", name=" + name + ", shortDescriptionRU=" + shortDescriptionRU + ", shortDescriptionEN=" + shortDescriptionEN + ", fullDescriptionRU=" + fullDescriptionRU + ", fullDescriptionEN=" + fullDescriptionEN + ", dateOfStart=" + dateOfStart + ", dateOfEnd=" + dateOfEnd + ", idRegion=" + idRegion + '}';
+    }
+
+////////////////////////////////////////////////////////////////////////////////
+    
+    @Override
+    public void create(Tour entity) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Tour> findAll() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Tour findEntityById(Long id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void update(Tour entity) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void delete(Long id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void delete(Tour entity) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
+    ////////////////////////////////////////////////////////////////////////////
     
+    public Country findEntityByName(String name) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

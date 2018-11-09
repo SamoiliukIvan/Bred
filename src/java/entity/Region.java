@@ -1,23 +1,22 @@
 
 package entity;
 
+import dao.RegionDao;
+import java.util.List;
 import java.util.Objects;
 
-public class Region {
+public class Region extends Entity implements RegionDao{
     
-    private Long id;
     private String name;
     private Long idCountry;
 
     public Region() {
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    public Region(String name, Long idCountry, Long id) {
+        super(id);
+        this.name = name;
+        this.idCountry = idCountry;
     }
 
     public String getName() {
@@ -38,10 +37,9 @@ public class Region {
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 97 * hash + Objects.hashCode(this.id);
-        hash = 97 * hash + Objects.hashCode(this.name);
-        hash = 97 * hash + Objects.hashCode(this.idCountry);
+        int hash = 7;
+        hash = 89 * hash + Objects.hashCode(this.name);
+        hash = 89 * hash + Objects.hashCode(this.idCountry);
         return hash;
     }
 
@@ -54,7 +52,7 @@ public class Region {
             return false;
         }
         final Region other = (Region) obj;
-        if (!Objects.equals(this.id, other.id)) {
+        if (!Objects.equals(this.name, other.name)) {
             return false;
         }
         if (!Objects.equals(this.idCountry, other.idCountry)) {
@@ -63,10 +61,48 @@ public class Region {
         return true;
     }
 
+    
+
     @Override
     public String toString() {
-        return "Region{" + "id=" + id + ", name=" + name + ", idCountry=" + idCountry + '}';
+        return "id=" + getId() + " Region{" + ", name=" + name + ", idCountry=" + idCountry + '}';
+    }
+
+    ////////////////////////////////////////////////////////////////////////////
+    
+    @Override
+    public void create(Region entity) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Region> findAll() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Region findEntityById(Long id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void update(Region entity) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void delete(Long id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void delete(Region entity) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
+    ////////////////////////////////////////////////////////////////////////////
     
+    public Country findEntityByName(String name) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

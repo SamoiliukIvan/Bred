@@ -1,11 +1,11 @@
 
 package entity;
 
+import dao.UserDao;
 import java.util.List;
 import java.util.Objects;
 
-public class User {
-    private Long id;
+public class User extends Entity implements UserDao{
     private String name;
     private String surname;
     private String mail;
@@ -13,16 +13,17 @@ public class User {
     private long phone;
     private List<Order> history;
     
-    public User() {
-        
+    public User() {  
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    public User(Long id, String name, String surname, String mail, String password, long phone, List<Order> history) {
+        super(id);
+        this.name = name;
+        this.surname = surname;
+        this.mail = mail;
+        this.password = password;
+        this.phone = phone;
+        this.history = history;
     }
 
     public String getName() {
@@ -75,13 +76,13 @@ public class User {
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 79 * hash + Objects.hashCode(this.id);
-        hash = 79 * hash + Objects.hashCode(this.name);
-        hash = 79 * hash + Objects.hashCode(this.surname);
-        hash = 79 * hash + Objects.hashCode(this.mail);
-        hash = 79 * hash + Objects.hashCode(this.password);
-        hash = 79 * hash + (int) (this.phone ^ (this.phone >>> 32));
+        int hash = 3;
+        hash = 73 * hash + Objects.hashCode(this.name);
+        hash = 73 * hash + Objects.hashCode(this.surname);
+        hash = 73 * hash + Objects.hashCode(this.mail);
+        hash = 73 * hash + Objects.hashCode(this.password);
+        hash = 73 * hash + (int) (this.phone ^ (this.phone >>> 32));
+        hash = 73 * hash + Objects.hashCode(this.history);
         return hash;
     }
 
@@ -94,9 +95,6 @@ public class User {
             return false;
         }
         final User other = (User) obj;
-        if (!Objects.equals(this.id, other.id)) {
-            return false;
-        }
         if (!Objects.equals(this.name, other.name)) {
             return false;
         }
@@ -120,9 +118,44 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" + "id=" + id + ", name=" + name + ", surname=" + surname + ", mail=" + mail + ", password=" + password + ", phone=" + phone + ", history=" + history + '}';
+        return "id=" + getId() + " User{" + ", name=" + name + ", surname=" + surname + ", mail=" + mail + ", password=" + password + ", phone=" + phone + ", history=" + history + '}';
+    }
+    
+////////////////////////////////////////////////////////////////////////////////
+
+    @Override
+    public void create(User entity) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    @Override
+    public List<User> findAll() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public User findEntityById(Long id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void update(User entity) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void delete(Long id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void delete(User entity) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
+    ////////////////////////////////////////////////////////////////////////////
     
+    public Country findEntityByName(String name) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

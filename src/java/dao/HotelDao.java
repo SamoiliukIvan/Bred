@@ -2,8 +2,7 @@
 package dao;
 
 import entity.Hotel;
-import java.util.List;
 
-public interface HotelDao extends Dao{
+public interface HotelDao extends AbstractDao<Long, Hotel>{
     
 }

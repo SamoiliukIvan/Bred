@@ -1,11 +1,12 @@
 
 package entity;
 
+import dao.HotelDao;
+import java.util.List;
 import java.util.Objects;
 
-public class Hotel {
+public class Hotel extends Entity implements HotelDao{
     
-    private Long id;
     private String nameRU;
     private String nameEN;
     private Long idRegion;
@@ -13,17 +14,20 @@ public class Hotel {
     private String shortDescriptionEN;
     private String fullDescriptionRU;
     private String fullDescriptionEN;
-    private Stars countOfStars;
+    private int stars;
 
     public Hotel() {
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    public Hotel(String nameRU, String nameEN, Long idRegion, String shortDescriptionRU, String shortDescriptionEN, String fullDescriptionRU, String fullDescriptionEN, int stars) {
+        this.nameRU = nameRU;
+        this.nameEN = nameEN;
+        this.idRegion = idRegion;
+        this.shortDescriptionRU = shortDescriptionRU;
+        this.shortDescriptionEN = shortDescriptionEN;
+        this.fullDescriptionRU = fullDescriptionRU;
+        this.fullDescriptionEN = fullDescriptionEN;
+        this.stars = stars;
     }
 
     public String getNameRU() {
@@ -82,26 +86,25 @@ public class Hotel {
         this.fullDescriptionEN = fullDescriptionEN;
     }
 
-    public Stars getCountOfStars() {
-        return countOfStars;
+    public int getStars() {
+        return stars;
     }
 
-    public void setCountOfStars(Stars countOfStars) {
-        this.countOfStars = countOfStars;
+    public void setStars(int stars) {
+        this.stars = stars;
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 31 * hash + Objects.hashCode(this.id);
-        hash = 31 * hash + Objects.hashCode(this.nameRU);
-        hash = 31 * hash + Objects.hashCode(this.nameEN);
-        hash = 31 * hash + Objects.hashCode(this.idRegion);
-        hash = 31 * hash + Objects.hashCode(this.shortDescriptionRU);
-        hash = 31 * hash + Objects.hashCode(this.shortDescriptionEN);
-        hash = 31 * hash + Objects.hashCode(this.fullDescriptionRU);
-        hash = 31 * hash + Objects.hashCode(this.fullDescriptionEN);
-        hash = 31 * hash + Objects.hashCode(this.countOfStars);
+        int hash = 3;
+        hash = 37 * hash + Objects.hashCode(this.nameRU);
+        hash = 37 * hash + Objects.hashCode(this.nameEN);
+        hash = 37 * hash + Objects.hashCode(this.idRegion);
+        hash = 37 * hash + Objects.hashCode(this.shortDescriptionRU);
+        hash = 37 * hash + Objects.hashCode(this.shortDescriptionEN);
+        hash = 37 * hash + Objects.hashCode(this.fullDescriptionRU);
+        hash = 37 * hash + Objects.hashCode(this.fullDescriptionEN);
+        hash = 37 * hash + this.stars;
         return hash;
     }
 
@@ -114,9 +117,6 @@ public class Hotel {
             return false;
         }
         final Hotel other = (Hotel) obj;
-        if (!Objects.equals(this.id, other.id)) {
-            return false;
-        }
         if (!Objects.equals(this.nameRU, other.nameRU)) {
             return false;
         }
@@ -138,7 +138,7 @@ public class Hotel {
         if (!Objects.equals(this.fullDescriptionEN, other.fullDescriptionEN)) {
             return false;
         }
-        if (this.countOfStars != other.countOfStars) {
+        if (this.stars != other.stars) {
             return false;
         }
         return true;
@@ -146,9 +146,56 @@ public class Hotel {
 
     @Override
     public String toString() {
-        return "Hotel{" + "id=" + id + ", nameRU=" + nameRU + ", nameEN=" + nameEN + ", idRegion=" + idRegion + ", shortDescriptionRU=" + shortDescriptionRU + ", shortDescriptionEN=" + shortDescriptionEN + ", fullDescriptionRU=" + fullDescriptionRU + ", fullDescriptionEN=" + fullDescriptionEN + ", countOfStars=" + countOfStars + '}';
+        return "id" + getId() + "Hotel{" + "nameRU=" + nameRU + ", nameEN=" + nameEN + ", idRegion=" + idRegion + ", shortDescriptionRU=" + shortDescriptionRU + ", shortDescriptionEN=" + shortDescriptionEN + ", fullDescriptionRU=" + fullDescriptionRU + ", fullDescriptionEN=" + fullDescriptionEN + ", stars=" + stars + '}';
+    }
+
+    ////////////////////////////////////////////////////////////////////////////
+    
+    @Override
+    public void create(Hotel entity) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Hotel> findAll() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Hotel findEntityById(Long id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void update(Hotel entity) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void delete(Long id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void delete(Hotel entity) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+////////////////////////////////////////////////////////////////////////////////
+    
+    public Hotel findEntityByNameRu(String name) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
+    public Hotel findEntityByNameEn(String name) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
+    public Hotel findEntityByIdRegion(Long idRegion) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
+    public Hotel findEntityByCountOfStars(int countOfStars) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

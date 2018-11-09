@@ -2,8 +2,7 @@
 package dao;
 
 import entity.User;
-import java.util.List;
 
-public interface UserDao extends Dao{
+public interface UserDao extends AbstractDao<Long, User>{
     
 }
